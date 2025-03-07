@@ -16,7 +16,7 @@ const JobListings = async ({
 }) => {
   const response = await getActiveJobs({
     page: currentPage,
-    pageSize: 2,
+    pageSize: 10,
     jobTypes: jobTypes,
     location,
   });
