@@ -22,7 +22,7 @@ export function getClient(session: boolean) {
   if (session) {
     return aj.withRule(
       tokenBucket({
-        mode: "DRY_RUN",
+        mode: "LIVE", // DRY_RUN for localhost, just for checking
         capacity: 100,
         interval: "60s",
         refillRate: 30,
@@ -31,7 +31,7 @@ export function getClient(session: boolean) {
   } else {
     return aj.withRule(
       tokenBucket({
-        mode: "DRY_RUN",
+        mode: "LIVE", // LIVE for only production either we use DRY_RUN.
         capacity: 100,
         interval: "60s",
         refillRate: 10,
